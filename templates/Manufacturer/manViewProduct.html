@@ -1,0 +1,40 @@
+{% extends 'ManufacturersIndex.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<table class="table table-striped table-hover">
+      <tr>
+          <thead>
+        <th>product_Id </th>
+        <th>product_Name</th>
+        <th>category</th>
+        <th>Material</th>
+        <th>color</th>
+        <th>Size</th>
+        <th>price</th>
+        <th>quantity_Available</th>
+        <th>images</th>
+        <th>Actions</th>
+        </thead>
+
+    </tr>
+    <tbody>
+    {% for i in products %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.product_Name}}</td>
+        <td>{{i.category}}</td>
+        <td>{{i.Material}}</td>
+        <td>{{i.color}}</td>
+        <td>{{i.Size}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.quantity_Available}}</td>
+        <td><img src ="{{ i.images.url }}" height="100px" width="50px"></td>
+        <td><a href="{% url 'ManupdateProduct' i.product_Id %}">Update</a></td>
+        <td><a href="{% url 'MandeleteProduct' i.product_Id %} ">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

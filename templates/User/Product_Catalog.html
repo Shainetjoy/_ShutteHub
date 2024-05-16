@@ -1,0 +1,18 @@
+{% extends 'shutterUserIndex.html' %}
+{% block content %}
+{% for i in products %}
+<div class="card" style="width: 18rem;">
+    <h6>{{i.category}}</h6>
+  <img src="{{i.images.url}}" class="card-img-top" alt="..." height="200px">
+  <div class="card-body">
+    <h5 class="card-title">{{i.product_Name}}</h5>
+    <p class="card-text">PRICE : {{i.price}}₹</p>
+    <p class="card-text">Quantity Available: {{i.quantity_Available}}</p>
+    <p class="card-text">Supplier ID: {{i.supplier_id}} days</p>
+    <a class="btn btn-outline-info" href="{% url 'orderitems' i.product_Id %}">Book now</a>
+
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

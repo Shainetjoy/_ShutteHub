@@ -1,0 +1,15 @@
+{% extends 'shutterAdminIndex.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <form method='post'>
+            {% csrf_token %}
+            {{ShutterAddForm|crispy}}
+            <button type="submit">submit</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'shutterUserIndex.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+<table class="table table-striped table-hover">
+    <tr>
+        <thead>
+        <th>Product_Name</th>
+        <th>product_Id</th>
+        <th>Quantity</th>
+        <th>Date_of_supply</th>
+        <th>Product_price</th>
+        <th>Status</th>
+        </thead>
+
+    </tr>
+    <tbody>
+    {% for i in orderDtlz %}
+    <tr>
+        <td>{{i.Product_Name}}</td>
+        <td>{{i.product_Id}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.Date_of_supply}}</td>
+        <td>{{i.Product_price}}</td>
+        <td>{{i.Booking_status}}</td>
+        <!--        -->
+        <!--        <td><img src ="{{ i.images.url }}" height="100px" width="50px"></td>-->
+        <!--        <td><a href="{% url 'updateProduct' i.product_Id %}">Update</a></td>-->
+        <!--        <td><a href="{% url 'deleteProduct' i.product_Id %} ">Delete</a></td>-->
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
